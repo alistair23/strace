@@ -148,6 +148,10 @@ powerpc*)
 		esac
 	fi
 	;;
+riscv32*)
+	arch=riscv32
+	AC_DEFINE([RISCV32], 1, [Define for the RISC-V 32-bit architecture])
+	;;
 riscv64*)
 	arch=riscv64
 	AC_DEFINE([RISCV64], 1, [Define for the RISC-V 64-bit architecture])
