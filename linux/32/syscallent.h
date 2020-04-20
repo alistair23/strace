@@ -8,6 +8,9 @@
 #ifndef sys_ARCH_mmap
 # define sys_ARCH_mmap sys_mmap
 #endif
+#ifndef ARCH_WANT__LLSEEK
+# define ARCH_WANT__LLSEEK 1
+#endif
 [  0] = { 2,	TM,		SEN(io_setup),			"io_setup"		},
 [  1] = { 1,	TM,		SEN(io_destroy),		"io_destroy"		},
 [  2] = { 3,	0,		SEN(io_submit),			"io_submit"		},
@@ -70,7 +73,11 @@
 [ 59] = { 2,	TD,		SEN(pipe2),			"pipe2"			},
 [ 60] = { 4,	TF,		SEN(quotactl),			"quotactl"		},
 [ 61] = { 3,	TD,		SEN(getdents64),		"getdents64"		},
+#if ARCH_WANT__LLSEEK
 [ 62] = { 5,	TD,		SEN(llseek),			"_llseek"		},
+#else
+[ 62] = { 5,	TD,		SEN(llseek),			"llseek"		},
+#endif
 [ 63] = { 3,	TD,		SEN(read),			"read"			},
 [ 64] = { 3,	TD,		SEN(write),			"write"			},
 [ 65] = { 3,	TD,		SEN(readv),			"readv"			},
