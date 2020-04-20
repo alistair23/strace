@@ -6,6 +6,7 @@
  */
 
 #define sys_ARCH_mmap sys_mmap_4koff
+#define ARCH_WANT__LLSEEK 0
 
 #include "32/syscallent.h"
 
