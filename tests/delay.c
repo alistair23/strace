@@ -76,7 +76,7 @@ run(const int nproc, const int delay_enter, const int delay_exit)
 		if (i && clock_gettime(CLOCK_REALTIME, &ts))
 			perror_msg_and_fail("clock_gettime");
 
-		if (syscall(__NR_gettimeofday, &now, NULL))
+		if (gettimeofday(&now, NULL))
 			perror_msg_and_fail("gettimeofday");
 
 		if (!i)
